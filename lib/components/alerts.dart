@@ -54,39 +54,29 @@ class Alerts extends StatelessWidget {
         ),
       ),
       actions: <Widget>[
-        Container(
-          height: 25,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              // cancel button
-              if (data.cancelTxt != null)
-                TextButton(
-                  child: Text(
-                    data.cancelTxt!,
-                    style: AppTextStyles.free13.copyWith(
-                      color: Theme.of(context).textTheme.bodyMedium?.color,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-
-              // confirm button
-              TextButton(
-                child: Text(
-                  data.confirmTxt,
-                  style: AppTextStyles.free13.copyWith(
-                    color: AppColors.pointBlue,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+        // cancel button
+        if (data.cancelTxt != null)
+          TextButton(
+            child: Text(
+              data.cancelTxt!,
+              style: AppTextStyles.free13.copyWith(
+                color: Theme.of(context).textTheme.bodyMedium?.color,
               ),
-            ],
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
+
+        // confirm button
+        TextButton(
+          child: Text(
+            data.confirmTxt,
+            style: AppTextStyles.free13.copyWith(color: AppColors.pointBlue),
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
       ],
     );
