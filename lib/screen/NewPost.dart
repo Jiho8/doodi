@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:doodi/components/alerts.dart';
 import 'package:doodi/constants/colors.dart';
@@ -141,11 +142,36 @@ class _MyWidgetState extends State<NewPost> {
                             }
                             return null;
                           },
+                          // 비밀번호 화면에서 숨기고 *표시
                           obscureText: idx == 3 ? isPasswordObscured : false,
                           obscuringCharacter: '*',
+
+                          // 글자수 제한
+                          maxLength: (idx == 0)
+                              ? 30
+                              : (idx == 1 || idx == 2)
+                              ? 50
+                              : 4,
+                          maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                          buildCounter:
+                              (
+                                BuildContext context, {
+                                required int currentLength,
+                                required bool isFocused,
+                                required int? maxLength,
+                              }) {
+                                // 비밀번호 필드는 null 반환 → 글자 수 숨김
+                                if (idx == 3) return null;
+
+                                return Text(
+                                  '$currentLength / $maxLength',
+                                  style: AppTextStyles.lightFree12,
+                                );
+                              },
                           decoration: InputDecoration(
                             hintText: item['placeholder'],
                             hintStyle: AppTextStyles.lightFree12,
+
                             suffixIcon: idx == 3
                                 ? IconButton(
                                     onPressed: () {
@@ -262,66 +288,6 @@ class _MyWidgetState extends State<NewPost> {
           ),
         ],
       ),
-    );
-  }
-
-  void emptyDialog(context) {
-    showDialog(
-      context: context,
-      barrierDismissible: true,
-
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: Icon(Icons.error_outline),
-              ),
-
-              Text(
-                '알림',
-                style: AppTextStyles.free15.copyWith(
-                  color: Theme.of(context).iconTheme.color,
-                ),
-              ),
-            ],
-          ),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text(
-                  '필수 입력 항목을 작성하지 않았습니다.',
-                  style: AppTextStyles.lightFree12.copyWith(
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            Container(
-              height: 25,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    child: Text(
-                      '확인',
-                      style: AppTextStyles.free15.copyWith(
-                        color: AppColors.pointBlue,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ],
-        );
-      },
     );
   }
 }

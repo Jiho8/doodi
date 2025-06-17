@@ -73,7 +73,7 @@ class _MyWidgetState extends State<Settings> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '두디 Dood - 밸런스 게임 커뮤니티 어플리케이션\n버전 1.0.0\n개발자 dododoodo, Jiho8\nⓒ 2025. dododoodo / Jiho8 All rights reserved.',
+              '두디 Doody - 밸런스 게임 커뮤니티 어플리케이션\n버전 1.0.0\n개발자 dododoodo, Jiho8\nⓒ 2025. dododoodo / Jiho8 All rights reserved.',
               style: AppTextStyles.lightFree12.copyWith(
                 color: controller.themeIdx == 0
                     ? AppColors.greyColor
@@ -122,6 +122,7 @@ class _MyWidgetState extends State<Settings> {
             );
           },
         ),
+        SizedBox(height: 20),
       ],
     );
   }
