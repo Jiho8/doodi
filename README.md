@@ -1,6 +1,4 @@
 
-![썸네일목업_1](https://github.com/user-attachments/assets/d43399a0-c906-4c4c-afe8-534ab4fe4f03)
-
 ## 📢 소개
 사용자가 직접 밸런스 게임을 만들고, 다른 사람들과 함께 즐길 수 있는 SPA 웹사이트, <b>"Doody"</b> 입니다. <br>
 
@@ -138,20 +136,3 @@ https://doody-nine.vercel.app/
 | **Vercel** | **서버리스 플랫폼** |![vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)|
 | **Figma** | **디자인 & UI/UX**|![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white) |
 
-## 📚 참고 URL
-- 기획 및 화면 설계 :
-- 발표 자료 :
-- 인터페이스 구현 보고서 :
-- 프로젝트 완료 보고서 :
-
-<hr>
-
-# ***의 개발 상세
-
-## 📑 요약
-
-### 담당 페이지 목록
-
-## 🧩 공통 컴포넌트
-
-## 💥 이슈 및 해결
